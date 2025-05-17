@@ -66,3 +66,21 @@ variable "each_vm" {
     disk_volume = number
   }))
 }
+
+
+variable "hdd_size" {
+  type = number
+  default = 1
+  description = "default HDD size"
+}
+
+variable "hdd_count" {
+  type = number
+  default = 3
+  description = "count of HDD"
+}
+
+variable "storage_type" {
+  type = string
+  default = "network-hdd"
+}
