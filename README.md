@@ -38,7 +38,7 @@ variable "each_vm" {
 
 ### Ответ
 
-1.
+1. count-vm.tf
 
 <details> <summary>count-vm.tf</summary>
 
@@ -124,3 +124,14 @@ resource "yandex_compute_instance" "db_vms" {
 ![task2](https://github.com/biparasite/TER-HW03/blob/main/task_2.1.png "task2")
 
 </details>
+
+---
+
+## Задание 3
+
+1. Создайте 3 одинаковых виртуальных диска размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле **disk_vm.tf** .
+2. Создайте в том же файле **одиночную**(использовать count или for_each запрещено из-за задания №4) ВМ c именем "storage" . Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
+
+---
+
+### Ответ
