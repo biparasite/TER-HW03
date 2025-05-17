@@ -32,3 +32,37 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "metadata" {
+  type = map(string)
+  description = "SSH key map"
+
+}
+
+variable "vm_web_image" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "VM OS image"
+}
+
+variable "vm_web_platform" {
+  type        = string
+  default     = "standard-v1"
+  description = "VM platform"
+}
+
+variable "vms_resources" {
+  type = map(any)
+  description = "VM resourses map"
+
+}
+
+variable "each_vm" {
+  description = "Список конфигураций для всех виртуальных машин."
+  type       = list(object({
+    vm_name   = string,
+    cpu       = number,
+    ram       = number,
+    disk_volume = number
+  }))
+}
