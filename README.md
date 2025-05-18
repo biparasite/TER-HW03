@@ -194,3 +194,44 @@ resource "yandex_compute_instance" "storage" {
 ![task3](https://github.com/biparasite/TER-HW03/blob/main/task_3.1.png "task3")
 
 </details>
+
+---
+
+## Задание 4
+
+1. В файле ansible.tf создайте inventory-файл для ansible.
+   Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции.
+   Готовый код возьмите из демонстрации к лекции [**demonstration2**](https://github.com/netology-code/ter-homeworks/tree/main/03/demo).
+   Передайте в него в качестве переменных группы виртуальных машин из задания 2.1, 2.2 и 3.2, т. е. 5 ВМ.
+2. Инвентарь должен содержать 3 группы и быть динамическим, т. е. обработать как группу из 2-х ВМ, так и 999 ВМ.
+3. Добавьте в инвентарь переменную [**fqdn**](https://cloud.yandex.ru/docs/compute/concepts/network#hostname).
+
+```
+[webservers]
+web-1 ansible_host=<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
+web-2 ansible_host=<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
+
+[databases]
+main ansible_host=<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
+replica ansible_host<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
+
+[storage]
+storage ansible_host=<внешний ip-адрес> fqdn=<полное доменное имя виртуальной машины>
+```
+
+Пример fqdn: `web1.ru-central1.internal`(в случае указания переменной hostname(не путать с переменной name)); `fhm8k1oojmm5lie8i22a.auto.internal`(в случае отсутвия перменной hostname - автоматическая генерация имени, зона изменяется на auto). нужную вам переменную найдите в документации провайдера или terraform console.
+
+4. Выполните код. Приложите скриншот получившегося файла.
+
+Для общего зачёта создайте в вашем GitHub-репозитории новую ветку terraform-03. Закоммитьте в эту ветку свой финальный код проекта, пришлите ссылку на коммит.
+**Удалите все созданные ресурсы**.
+
+---
+
+### Ответ
+
+<details> <summary>ansible inventory</summary>
+
+![task4](https://github.com/biparasite/TER-HW03/blob/main/task_4.1.png "task4")
+
+</details>
