@@ -23,12 +23,12 @@ resource "yandex_compute_instance" "storage" {
     }
   }
 
-  dynamic "secondary_disk" {
+   dynamic "secondary_disk" {
     for_each = yandex_compute_disk.storage_disk
     content {
       disk_id = secondary_disk.value.id
     }
-  }
+  } 
 
   scheduling_policy {
     preemptible = true
@@ -40,5 +40,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   metadata = var.metadata
+
+
 
 }
